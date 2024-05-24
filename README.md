@@ -66,6 +66,23 @@ The YouTube Clone Project is a web application designed to mimic the core functi
   - Learn to deploy applications to cloud platforms.
   - Understand the importance of maintaining and updating a deployed application.
 
+## Usage
+
+1. **Clone the Repository**:
+   ```sh
+   https://github.com/Shubham0202/YouTube-Clone.git
+   cd gemini-clone
+2. **Install Dependencies**:
+   ```sh
+   npm install
+
+4. **Run the Application**:
+   ```sh
+   npm run dev
+6. **Access the Application**:
+   Open your browser and navigate to
+   ```sh
+   localhost:5173
 ## Conclusion
 
 The YouTube Clone Project is a comprehensive project that covers a wide range of web development skills and concepts. By working on this project, developers can gain valuable experience in building real-world applications, integrating APIs, and handling user interactions. This project not only enhances technical skills but also provides a deeper understanding of how popular platforms like YouTube operate behind the scenes.
