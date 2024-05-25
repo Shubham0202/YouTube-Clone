@@ -10,7 +10,7 @@ const SearchResult = () => {
 
     // console.log(videos);
   return (
-    <div className="my-4 grid-auto-fit">
+    <div className="m-4 grid-auto-fit">
             
           {
             (error)?<ErrorLoader errorMsg={error.message} statusCode={error.response.status} /> :

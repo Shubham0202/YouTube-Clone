@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import Compass from '../../assets/compass.svg'
+import { context } from '../../context/ContextProvider';
 const Suggestions = () => {
     const youtubeCategories = [
         "All",
@@ -23,9 +24,20 @@ const Suggestions = () => {
         "Recently Uploaded",
         "Your Videos"
     ];
-        
+      
+    const {
+        toggleAside
+      } = useContext(context);
+    
+      const handleAside = ()=>{
+      toggleAside();
+    }
   return (
     <ul className='flex items-center gap-3 overflow-scroll hide-scrollbar w-full sm:bg-white py-3 md:sticky top-0 z-10'>
+        
+        <li onClick={handleAside} className={`block sm:hidden shrink-0 bg-gray-100 cursor-default sm:cursor-pointer font-semibold capitalize rounded-lg px-4 py-2 text-nowrap`}>
+            <img src={Compass} className='w-6 h-6' alt="logo" />
+        </li>
         {
             youtubeCategories.map((cat,i)=>
     

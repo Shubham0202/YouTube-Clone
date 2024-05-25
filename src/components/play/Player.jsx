@@ -6,14 +6,13 @@ import { useParams } from 'react-router-dom';
 import SkeletonLoader from '../SkeletonLoader';
 const Player = () => {
     const {catId} = useParams();
-    console.log(catId);
     const API_URL = 'https://www.googleapis.com/youtube/v3/videos';
     
     const {videos,loading} = useYouTubeVideos(API_URL,catId);
 
     return (
-        <div className="grid place-items-center">
-        <div className='mx-4 lg:grid grid-cols-[65%_33%] gap-4 overflow-scroll  hide-scrollbar'>
+        <div className="w-full">
+        <div className='mx-4 xl:grid grid-cols-[65%_33%] gap-4 overflow-y-scroll hide-scrollbar'>
             <VideoContainer />
             <div className="related">
             {

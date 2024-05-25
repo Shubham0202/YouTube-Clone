@@ -36,3 +36,7 @@
  .hide-scrollbar::-webkit-scrollbar-track{
   background: transparent;
  }
+ .test{
+  background: #6e6e6e7d;
+  backdrop-filter: blur(2px);
+ }

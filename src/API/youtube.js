@@ -4,7 +4,7 @@ import axios from 'axios';
 import { context } from '../context/ContextProvider';
 
 
-const useYouTubeVideos = (API_URL, catId = 0, params = {}) => {
+const useYouTubeVideos = (API_URL, catId = 0) => {
 
   const { API_KEY } = useContext(context);
   const [videos, setVideos] = useState([]);
@@ -26,7 +26,6 @@ const useYouTubeVideos = (API_URL, catId = 0, params = {}) => {
             maxResults: 10,
             key: API_KEY,
             videoCategoryId: catId,
-            ...params,
           },
         });
         const filteredVideos = response.data.items.filter(
@@ -42,8 +41,7 @@ const useYouTubeVideos = (API_URL, catId = 0, params = {}) => {
 
     fetchVideos();
 
-
-  }, [API_URL]);
+  }, [API_URL,catId]);
 
   return { videos, loading, error };
 };
