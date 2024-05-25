@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getDaysAndMonthsSince, valueConverter } from '../../logic/script';
 
-const VideoDescription = () => {
+const VideoDescription = ({ description,views,pubdate }) => {
+    const [vViews,setVViews] = useState(1);
+    const [pubdt,setPubdt] = useState({days:0,months:0});
+
+    useEffect(()=>{
+        setVViews(valueConverter(views));
+        setPubdt(getDaysAndMonthsSince(pubdate));
+
+    },[])
     return (
         <div className="video-description bg-gray-100 rounded-lg p-2">
-            <h3 className="views-upload-date font-semibold">473k 2 months ago</h3>
+            <h3 className="views-upload-date font-semibold">{vViews}  {(pubdt.days<31)? pubdt.days+" days ago":pubdt.months+" months ago"}</h3>
             <p className='line-clamp-2'>
-                Our first video of 2022!
-                The most viral song of 2021 with our desi touch on it🎶
+                {description}
             </p>
         </div>
     )

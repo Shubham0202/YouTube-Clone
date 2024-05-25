@@ -21,101 +21,122 @@ const Aside = () => {
   const {
     isAsideOpen,
     setIsAsideOpen,
+    setCategoryId
   } = useContext(context);
-  const main = [
-    {
-      icon: Homesvg,
-      title: 'home'
-    },
-    {
-      icon: Film,
-      title: 'shorts'
-    },
-    {
-      icon: Subscription,
-      title: 'subscriptions '
-    },
-  ];
-  const you = [
-    {
-      icon: History,
-      title: 'history'
-    },
-    {
-      icon: PlayList,
-      title: 'playlists'
-    },
-    {
-      icon: WatchLater,
-      title: 'watch later'
-    },
-    {
-      icon: Liked,
-      title: 'liked videos'
-    },
-  ];
-  const explore = [
-    {
-      icon: Fire,
-      title: 'trending'
-    },
-    {
-      icon: Music,
-      title: 'music'
-    },
-    {
-      icon: Gaming,
-      title: 'gaming'
-    },
-    {
-      icon: Podcast,
-      title: 'podcast'
-    },
-  ];
-  const aboutYoutube = [
-    {
-      icon: Settings,
-      title: 'settings'
-    },
-    {
-      icon: Help,
-      title: 'help'
-    },
-    {
-      icon: Report,
-      title: 'report'
-    },
-    {
-      icon: Feedback,
-      title: 'feedback'
-    },
-  ];
+  
+     const main = [
+      {
+        icon: Homesvg,
+        title: 'home',
+        
+      },
+      {
+        icon: Film,
+        title: 'shorts',
+        
+      },
+      {
+        icon: Subscription,
+        title: 'subscriptions',
+        
+      },
+    ];
+  
+    const you = [
+      {
+        icon: History,
+        title: 'history',
+        
+      },
+      {
+        icon: PlayList,
+        title: 'playlists',
+        
+      },
+      {
+        icon: WatchLater,
+        title: 'watch later',
+        
+      },
+      {
+        icon: Liked,
+        title: 'liked videos',
+        
+      },
+    ];
+  
+    const explore = [
+      {
+        icon: Fire,
+        title: 'trending',
+        
+      },
+      {
+        icon: Music,
+        title: 'music',
+        catId: 10
+      },
+      {
+        icon: Gaming,
+        title: 'gaming',
+        catId: 20
+      },
+      {
+        icon: Podcast,
+        title: 'podcast',
+        
+      },
+    ];
+  
+    const aboutYoutube = [
+      {
+        icon: Settings,
+        title: 'settings',
+        
+      },
+      {
+        icon: Help,
+        title: 'help',
+        
+      },
+      {
+        icon: Report,
+        title: 'report',
+        
+      },
+      {
+        icon: Feedback,
+        title: 'feedback',
+        
+      },
+    ];
+  
+  
   // const Mobile 
-function checkIsAsideOpen(){
-  const screenWidth = window.screen.width;
-  if(screenWidth <617)
-    {
+  function checkIsAsideOpen() {
+    const screenWidth = window.screen.width;
+    if (screenWidth < 617) {
       setIsAsideOpen(false);
     }
     else
-    setIsAsideOpen(true);
-}
-let checkEventCall = false;
-  useEffect(()=>{
-    window.addEventListener('resize',()=>{
-      checkEventCall =true;
-     checkIsAsideOpen();
+      setIsAsideOpen(true);
+  }
+  let checkEventCall = false;
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      checkEventCall = true;
+      checkIsAsideOpen();
     });
     // when website first time load on browser
-    if(!checkEventCall)
+    if (!checkEventCall)
       checkIsAsideOpen();
-  },[])
+  }, [])
   return (
-    <div className={`${isAsideOpen? 'block':'hidden'} aside px-4 w-60 overflow-y-scroll h-[calc(100dvh-70px)] custom-scrollbar shrink-0`}>
+    <div className={`${isAsideOpen ? 'block' : 'hidden'} aside px-4 w-60 overflow-y-scroll h-[calc(100dvh-70px)] custom-scrollbar shrink-0`}>
       <div className="main pb-4 border-b">
         {
           main.map((item) =>
-            <MenuCard key={item.title} title={item.title} icon={item.icon} isActive={(item.title =='home')? true:false} />
+            <MenuCard key={item.title} title={item.title} icon={item.icon} isActive={(item.title == 'home') ? true : false} />
           )
         }
       </div>

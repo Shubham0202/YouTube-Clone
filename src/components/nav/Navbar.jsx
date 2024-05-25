@@ -4,6 +4,7 @@ import YouTubeLogo from '../../assets/logo.svg'
 import Avatar from '../../assets/avatar.avif'
 import Searchbar from './Searchbar'
 import { context } from '../../context/ContextProvider'
+import { Link } from 'react-router-dom'
 const Navbar = () => {
   const {
     isAsideOpen,
@@ -22,9 +23,9 @@ const Navbar = () => {
         <div onClick={toggleAside} className="w-8 h-8">
           <img src={MenuIcon} className='w-full h-full' alt="" />
         </div>
-        <div className="w-24 h-10">
+        <Link to='/' className="w-24 h-10">
           <img src={YouTubeLogo} className='w-full h-full' alt="" />
-        </div>
+        </Link>
       </div>
       {/* searchbar */}
         <Searchbar/>

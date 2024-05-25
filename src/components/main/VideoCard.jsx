@@ -1,22 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Thumbnail from '../../assets/thumbnail/thumb.jpg'
-const VideoCard = () => {
+import { Link } from 'react-router-dom'
+import { valueConverter,getDaysAndMonthsSince } from '../../logic/script'
+const VideoCard = ({title,thumbnail,viewCount,pubDate,channelTitle,videoId,categoryId,playerUrl=`player/${videoId}/${categoryId}`}) => {
+    // counter converter
+    
+  const [uploadDate,setUploadDate] = useState({days:0,months:0});
+  const [viewsCount,setViewCount] = useState(1);
+  useEffect(()=>{
+    setUploadDate(getDaysAndMonthsSince(pubDate));
+    setViewCount(valueConverter(viewCount));
+  },[]);
     return (
-        <div className=''>
-            <img src={Thumbnail} alt="" className='w-full h-56 rounded-lg object-cover' />
+        <Link to={playerUrl}>
+            <img src={thumbnail} alt="" className='w-full h-56 rounded-lg object-cover' />
 
             <div className="video-info mt-2 flex items-start gap-2">
-                <img src={Thumbnail} alt="" className='w-10 h-10 rounded-full object-cover' />
+                <img loading='lazy' src={Thumbnail} alt="" className='w-10 h-10 rounded-full object-cover' />
                 <div>
-                    <h3 className='line-clamp-2 font-semibold'>Experience the Power of Badass Boys Themes - Jukebox | Epic Tamil Workout and</h3>
-                    <p className="line-clamp-1 text-secondary-gray">Music On</p>
+                    <h3 className='line-clamp-2 font-semibold'>{title}</h3>
+                    <p className="line-clamp-1 text-secondary-gray">{channelTitle}</p>
                     <p className="text-secondary-gray line-clamp-1">
-                        844 views
+                        {viewsCount} views
                         <span className='inline-block p-[2px] rounded-full bg-primary-gray mx-1 translate-y-[-2px]'></span>
-                        2 days ago</p>
+                        {(uploadDate.days<31)? uploadDate.days+" days ago":uploadDate.months+" months ago"}
+                        </p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 
