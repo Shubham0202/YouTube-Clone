@@ -5,7 +5,7 @@ const context = React.createContext()
 
 const ContextProvider = ({ children }) => {
 
-    const API_KEY = 'AIzaSyCP876fUEYpZa1zZ7QB4VVT1ULLaOTvzHo';
+    const API_KEY = 'YOUR_API_KEY_HERE';
     const [isAsideOpen, setIsAsideOpen] = useState(true);
     const [searchInput,setSearchInput] = useState('');
     const [showMobileSearch,setShowMobileSearch] = useState(false);
