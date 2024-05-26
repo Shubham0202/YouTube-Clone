@@ -77,7 +77,7 @@ The YouTube Clone Project is a web application designed to mimic the core functi
    npm install   
 3. **Paste Your YouTube Data API Here**
    ```sh
-   src/context/Context.jsx
+   src/context/ContextProvider.jsx
 4. **Run the Application**:
    ```sh
    npm run dev
