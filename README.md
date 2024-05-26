@@ -74,8 +74,10 @@ The YouTube Clone Project is a web application designed to mimic the core functi
    cd gemini-clone
 2. **Install Dependencies**:
    ```sh
-   npm install
-
+   npm install   
+3. **Paste Your YouTube Data API Here**
+   ```sh
+   src/context/Context.jsx
 4. **Run the Application**:
    ```sh
    npm run dev
